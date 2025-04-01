@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moeda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        #resultado {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Moeda</h2>
+        <input type="number" id="valorBRL" placeholder="Digite o valor em BRL">
+        <button onclick="converterMoeda()">Converter para USD</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function converterMoeda() {
+            let valorBRL = parseFloat(document.getElementById("valorBRL").value);
+            let taxaCambio = 5.0; // Taxa fictícia, pode ser ajustada
+            
+            if (!isNaN(valorBRL) && valorBRL > 0) {
+                let valorUSD = (valorBRL / taxaCambio).toFixed(2);
+                document.getElementById("resultado").innerText = `Valor em USD: $${valorUSD}`;
+            } else {
+                document.getElementById("resultado").innerText = "Por favor, insira um valor válido.";
+            }
+        }
+    </script>
+</body>
+</html>
